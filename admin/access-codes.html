@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erişim Kodları Yönetimi | Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar">
+            <div class="admin-logo">
+                <img src="../images/logo.svg" alt="Logo">
+                <span>Admin Panel</span>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="gallery.html"><i class="fas fa-images"></i> Galeri Yönetimi</a></li>
+                <li class="active"><a href="access-codes.html"><i class="fas fa-key"></i> Erişim Kodları</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Ayarlar</a></li>
+            </ul>
+        </nav>
+
+        <!-- Ana İçerik -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1>Erişim Kodları Yönetimi</h1>
+                <button class="add-button" onclick="showAddModal()">
+                    <i class="fas fa-plus"></i> Yeni Erişim Kodu
+                </button>
+            </header>
+
+            <!-- Erişim Kodları Tablosu -->
+            <div class="access-codes-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Erişim Kodu</th>
+                            <th>Drive Linki</th>
+                            <th>Açıklama</th>
+                            <th>Oluşturma Tarihi</th>
+                            <th>Son Kullanma</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accessCodesTableBody">
+                        <!-- JavaScript ile doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Yeni Erişim Kodu Modal -->
+            <div id="addModal" class="modal">
+                <div class="modal-content">
+                    <h2>Yeni Erişim Kodu Oluştur</h2>
+                    <form id="addAccessCodeForm">
+                        <div class="form-group">
+                            <label>Google Drive Linki</label>
+                            <input type="text" id="driveLink" required placeholder="https://drive.google.com/...">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <input type="text" id="description" required placeholder="Örn: Ahmet & Ayşe Düğün Çekimi">
+                        </div>
+                        <div class="form-group">
+                            <label>Son Kullanma Tarihi</label>
+                            <input type="date" id="expiryDate">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" onclick="hideAddModal()" class="cancel-button">İptal</button>
+                            <button type="submit" class="save-button">Oluştur</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Erişim kodları için örnek veri yapısı
+        let accessCodes = [];
+
+        // Erişim kodu oluşturma fonksiyonu
+        function generateAccessCode() {
+            return Math.random().toString(36).substring(2, 8).toUpperCase();
+        }
+
+        // Yeni erişim kodu ekleme
+        document.getElementById('addAccessCodeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newCode = {
+                code: generateAccessCode(),
+                driveLink: document.getElementById('driveLink').value,
+                description: document.getElementById('description').value,
+                expiryDate: document.getElementById('expiryDate').value,
+                createdAt: new Date().toISOString(),
+                status: 'active'
+            };
+
+            accessCodes.push(newCode);
+            updateTable();
+            hideAddModal();
+            saveToLocalStorage();
+        });
+
+        // Tabloyu güncelleme
+        function updateTable() {
+            const tbody = document.getElementById('accessCodesTableBody');
+            tbody.innerHTML = '';
+
+            accessCodes.forEach(code => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${code.code}</td>
+                    <td><a href="${code.driveLink}" target="_blank">${code.driveLink.substring(0, 30)}...</a></td>
+                    <td>${code.description}</td>
+                    <td>${new Date(code.createdAt).toLocaleDateString()}</td>
+                    <td>${code.expiryDate ? new Date(code.expiryDate).toLocaleDateString() : '-'}</td>
+                    <td><span class="status-badge ${code.status}">${code.status}</span></td>
+                    <td>
+                        <button onclick="toggleStatus('${code.code}')" class="action-button">
+                            <i class="fas fa-power-off"></i>
+                        </button>
+                        <button onclick="deleteCode('${code.code}')" class="action-button delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Local Storage işlemleri
+        function saveToLocalStorage() {
+            localStorage.setItem('accessCodes', JSON.stringify(accessCodes));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('accessCodes');
+            if (saved) {
+                accessCodes = JSON.parse(saved);
+                updateTable();
+            }
+        }
+
+        // Modal işlemleri
+        function showAddModal() {
+            document.getElementById('addModal').style.display = 'flex';
+        }
+
+        function hideAddModal() {
+            document.getElementById('addModal').style.display = 'none';
+        }
+
+        // Durum değiştirme
+        function toggleStatus(code) {
+            const codeIndex = accessCodes.findIndex(c => c.code === code);
+            if (codeIndex !== -1) {
+                accessCodes[codeIndex].status = 
+                    accessCodes[codeIndex].status === 'active' ? 'inactive' : 'active';
+                updateTable();
+                saveToLocalStorage();
+            }
+        }
+
+        // Kod silme
+        function deleteCode(code) {
+            if (confirm('Bu erişim kodunu silmek istediğinize emin misiniz?')) {
+                accessCodes = accessCodes.filter(c => c.code !== code);
+                updateTable();
+                saveToLocalStorage();
+            }
+        }
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', loadFromLocalStorage);
+    </script>
+</body>
+</html> 
