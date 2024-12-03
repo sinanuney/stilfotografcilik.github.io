@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stil Fotoğrafçılık | Düğün Fotoğrafçınız</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mobil Menü -->
+    <div class="mobile-header">
+        <div class="logo">
+            <img src="images/stil-logo.png" alt="Stil Fotoğrafçılık Logo" class="logo-img">
+            <span class="logo-text">Stil<span class="highlight">Fotoğrafçılık</span></span>
+        </div>
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Ana Sidebar Menü -->
+    <nav class="sidebar">
+        <div class="logo sidebar-logo">
+            <img src="images/stil-logo.png" alt="Stil Fotoğrafçılık Logo" class="logo-img">
+            <span class="logo-text">Stil<span class="highlight">Fotoğrafçılık</span></span>
+        </div>
+        
+        <!-- Sosyal Medya Bağlantıları -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/stilfotografcilik09/" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/qr/WC27DTJQSE6JO1" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.youtube.com/@stilfotografcilik09" target="_blank" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="tel:+905444126197" title="Telefon">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+
+        <ul class="menu">
+            <li class="active">
+                <a href="#dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Ana Sayfa</span>
+                </a>
+            </li>
+            <li>
+                <a href="#gallery">
+                    <i class="fas fa-images"></i>
+                    <span>Galeri</span>
+                </a>
+            </li>
+            <li>
+                <a href="#videos">
+                    <i class="fas fa-video"></i>
+                    <span>Videolar</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>İletişim</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Erişim Kodu Formu -->
+        <div class="sidebar-bottom-access">
+            <input type="text" placeholder="Erişim Kodunuz" id="sidebarAccessCode">
+            <button onclick="checkAccessCode()">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik Alanı -->
+    <main class="main-content">
+        <!-- Dashboard Bölümü -->
+        <section id="dashboard" class="active-section">
+            <!-- Hoş Geldiniz Mesajı -->
+            <div class="welcome-section">
+                <h1>Stil Fotoğrafçılık'a Hoş Geldiniz</h1>
+                <p class="welcome-text">
+                    Hayatınızın en özel anlarını ölümsüzleştirmek için buradayız. Profesyonel ekibimizle düğün, nişan, save the date ve özel çekimleriniz için yanınızdayız.
+                </p>
+                
+                <!-- Hizmetlerimiz -->
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-camera"></i>
+                        <h3>Düğün Çekimleri</h3>
+                        <p>En mutlu gününüzü profesyonel ekibimizle ölümsüzleştiriyoruz.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Video Prodüksiyon</h3>
+                        <p>Özel anlarınızı sinematik videolarla hatıralarınıza ekleyin.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Save The Date</h3>
+                        <p>Düğün öncesi özel çekimlerle aşkınızı ölümsüzleştirin.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-ring"></i>
+                        <h3>Nişan Çekimleri</h3>
+                        <p>Nişan töreninizin her anını özenle fotoğraflıyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Neden Biz -->
+                <div class="why-us-section">
+                    <h2>Neden Stil Fotoğrafçılık?</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>15 yılı aşkın deneyim</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Profesyonel ekipman</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Kaliteli hizmet</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Müşteri memnuniyeti</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri Bölümü -->
+        <section id="gallery" class="section">
+            <h2>Galeri</h2>
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Fotoğraf ara..." onkeyup="filterGallery(this.value)">
+                </div>
+            </div>
+
+            <!-- Albüm Seçimi -->
+            <div class="albums-container">
+                <div class="albums-grid">
+                    <div class="album-card" onclick="showAlbum('dugun-2024')">
+                        <div class="album-cover">
+                            <img src="https://picsum.photos/seed/album1/400/300" alt="Düğün 2024">
+                            <div class="album-info">
+                                <h3>Düğün 2024</h3>
+                                <p>20 Fotoğraf</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album-card" onclick="showAlbum('nisan-2024')">
+                        <div class="album-cover">
+                            <img src="https://picsum.photos/seed/album2/400/300" alt="Nişan 2024">
+                            <div class="album-info">
+                                <h3>Nişan 2024</h3>
+                                <p>20 Fotoğraf</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album-card" onclick="showAlbum('save-the-date')">
+                        <div class="album-cover">
+                            <img src="https://picsum.photos/seed/album3/400/300" alt="Save The Date">
+                            <div class="album-info">
+                                <h3>Save The Date</h3>
+                                <p>20 Fotoğraf</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album-card" onclick="showAlbum('dugun-hikayeleri')">
+                        <div class="album-cover">
+                            <img src="https://picsum.photos/seed/album4/400/300" alt="Düğün Hikayeleri">
+                            <div class="album-info">
+                                <h3>Düğün Hikayeleri</h3>
+                                <p>20 Fotoğraf</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album-card" onclick="showAlbum('ozel-cekim')">
+                        <div class="album-cover">
+                            <img src="https://picsum.photos/seed/album5/400/300" alt="Özel Çekim">
+                            <div class="album-info">
+                                <h3>Özel Çekim</h3>
+                                <p>20 Fotoğraf</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fotoğraf Grid -->
+            <div class="photos-container" style="display: none;">
+                <button class="back-to-albums" onclick="showAlbums()">
+                    <i class="fas fa-arrow-left"></i> Albümlere Dön
+                </button>
+                <div class="gallery-grid" id="mainGallery">
+                    <div class="gallery-item">
+                        <img src="https://i.ibb.co/QQTSG6g/STL00553.jpg" alt="Düğün Çekimi 1">
+                        <div class="gallery-overlay" onclick="openLightbox(this.parentElement)">
+                            <i class="fas fa-search-plus"></i>
+                            <div class="gallery-info">
+                                <h3>Düğün Çekimi 1</h3>
+                                <span class="category-badge">Düğün</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.ibb.co/n7zpb8C/D61-2027-2.jpg" alt="Düğün Çekimi 2">
+                        <div class="gallery-overlay" onclick="openLightbox(this.parentElement)">
+                            <i class="fas fa-search-plus"></i>
+                            <div class="gallery-info">
+                                <h3>Düğün Çekimi 2</h3>
+                                <span class="category-badge">Düğün</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <img id="lightbox-img" src="" alt="Büyük Görüntü">
+            <div class="lightbox-nav">
+                <button class="prev-photo" onclick="showPrevPhoto()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="next-photo" onclick="showNextPhoto()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Videolar Bölümü -->
+        <section id="videos" class="section">
+            <div class="container">
+                <h2 class="section-title">Videolarımız</h2>
+                <div class="videos-grid">
+                    <!-- Videolar JavaScript ile eklenecek -->
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim Bölümü -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">İletişim</h2>
+                
+                <!-- Sosyal Medya Bağlantıları -->
+                <div class="contact-social">
+                    <h3>Sosyal Medya Hesaplarımız</h3>
+                    <div class="social-links-contact">
+                        <a href="https://www.instagram.com/stilfotografcilik09/" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>@stilfotografcilik09</span>
+                        </a>
+                        <a href="https://wa.me/qr/WC27DTJQSE6JO1" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp'tan Ulaşın</span>
+                        </a>
+                        <a href="https://www.youtube.com/@stilfotografcilik09" target="_blank" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube Kanalımız</span>
+                        </a>
+                        <a href="tel:+905444126197" title="Telefon">
+                            <i class="fas fa-phone"></i>
+                            <span>+90 544 412 61 97</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Aydın Ofis -->
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3><i class="fas fa-building"></i> Stil Fotoğrafçılık Aydın</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Aydın Merkez</p>
+                            <p><i class="fas fa-phone"></i> +905543131356</p>
+                        </div>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12602.544853607373!2d27.83216326740184!3d37.84540155147947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b92b7f46564425%3A0xe40781786730cc8c!2zU3RpbCBGb3RvxJ9yYWbDp8SxbMSxayBBeWTEsW4!5e0!3m2!1str!2str!4v1733137918331!5m2!1str!2str"
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Nazilli Ofis -->
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3><i class="fas fa-building"></i> Stil Fotoğrafçılık Nazilli</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Nazilli</p>
+                            <p><i class="fas fa-phone"></i> +905543913378</p>
+                        </div>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12590.533511365691!2d28.314818467449683!3d37.91563125120037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b8b8c048cf8891%3A0x37cc3d4ef3d7902!2sStil%20Digital%20Foto%C4%9Fraf!5e0!3m2!1str!2str!4v1733137981719!5m2!1str!2str"
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Düğün Salonu -->
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3><i class="fas fa-glass-cheers"></i> Selahattin Acar Düğün Salonu</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Nazilli, Aydın</p>
+                            <p><i class="fas fa-phone"></i> +905444126197</p>
+                        </div>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12590.489898628148!2d28.333342067449852!3d37.91588605119935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b8b8d780a1a781%3A0x721d98330e7bf1c9!2zU2VsYWhhdHRpbiBBY2FyIETDvMSfw7xuIFNhbG9udQ!5e0!3m2!1str!2str!4v1733137883895!5m2!1str!2str"
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobil menü toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // Sayfa geçişleri için
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                
+                // Aktif menü öğesini güncelle
+                document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active'));
+                this.parentElement.classList.add('active');
+                
+                // Aktif bölümü göster
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
